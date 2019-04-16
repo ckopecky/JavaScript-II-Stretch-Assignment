@@ -51,6 +51,60 @@
 
 /* eslint-disable no-undef */
 
+class GameObject {
+  constructor(options) {
+    this.createdAt = new Date;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    return `Game object was removed from the game.`
+  } 
+}
+
+
+   // prototype method -> returns the string 'Game object was removed from the game.'
+
+  class NPC extends GameObject {
+    constructor(options) {
+      super(options);
+      this.hp = options.hp;
+      this.name = options.name;
+    }
+    takeDamage(){
+      return `${this.name} took damage.`
+    }
+
+  }
+
+  class Humanoid extends NPC {
+    constructor(options){
+      super(options);
+      this.faction = options.faction;
+      this.weapons = options.weapons;
+      this.language = options.language;
+    }
+    greet(){
+      return `${this.name} offers a greeting in ${this.language}.`
+    }
+  }
+  const npc = new NPC({
+    createdAt: new Date(),
+    dimensions: {
+      length: 5,
+      width: 5,
+      height: 15,
+    },
+    hp: 100,
+    name: 'Foofie',
+  });
+
+  // console.log(npc.name);
+
+     // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+    // should inherit destroy() from GameObject through NPC
+    // should inherit takeDamage() from NPC
+
+
 module.exports = {
   GameObject,
   NPC,

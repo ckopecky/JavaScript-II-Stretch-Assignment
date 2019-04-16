@@ -1,9 +1,5 @@
-const {
-  User,
-  Cat,
-} = require('../src/class');
+const { User, Cat } = require('../src/class');
 
-/* eslint-disable no-undef */
 describe('classes', () => {
   describe('User', () => {
     it('should be a valid JS class', () => {
